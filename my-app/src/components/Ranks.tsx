@@ -111,8 +111,10 @@ function Ranking () {
                 </tbody>
             </table>
             </div>
-        </div>
+        </div>   
     )
 }
+
+// up to date for v1.0
 
 export default Ranking;
