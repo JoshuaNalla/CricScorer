@@ -40,23 +40,23 @@ function Ranking () {
     }, [])
 
     return(
-        <div className = "RANKS">
+        <div className = "rank">
             <div className="container">
                 <div className="row">
                     <div className="col-lg">
-                    <button onClick={() => setUnique(0)}>Batting</button>
-                    </div>
-                    <div className="col-lg">
-                    <button onClick={() => setUnique(1)}>Bowling</button>
+                        <div>
+                        <button onClick={() => setUnique(0)} className={unique === 0? "offbtn" : "togglebtn"}>Batting</button>
+                        <button onClick={() => setUnique(1)} className={unique === 1? "offbtn" : "togglebtn"}>Bowling</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div className={unique === 0? "showContent" : "rankcontent"}>
-            <h1 style={{textAlign:"center"}}> batting ranking </h1>
             <table>
                 <thead>
                     <tr>
                         <th>Rank</th>
+                        <th>Points</th>
                         <th>Name</th>
                         <th>Matches</th>
                         <th>Runs</th>
@@ -69,6 +69,7 @@ function Ranking () {
                     {batting.map((player, index) => (
                         <tr key ={player.id}>
                             <td>{index + 1}</td>
+                            <td>{player.points}</td>
                             <td>{player.playerName}</td>
                             <td>{player.matches}</td>
                             <td>{player.playerRuns}</td>
@@ -81,7 +82,6 @@ function Ranking () {
             </table>
             </div>
             <div className={unique === 1? "showContent" : "rankcontent"}>
-            <h1 style={{textAlign:"center"}}>Bowling Ranking</h1>
             <table>
                 <thead>
                     <tr>
@@ -92,7 +92,7 @@ function Ranking () {
                         <th>Wickets</th>
                         <th>Economy</th>
                         <th>Average </th>
-                        <th>Bowling Strike Rate</th>
+                        <th>Strike Rate</th>
                     </tr>
                 </thead>
                 <tbody>
